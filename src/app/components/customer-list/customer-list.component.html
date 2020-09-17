@@ -1,0 +1,51 @@
+
+
+   <table  mat-table  [dataSource]="dataSource" cdkDropList  #list1="cdkDropList"
+   [cdkDropListData]="dataSource.data" [cdkDropListConnectedTo]="[list2]"
+   (cdkDropListDropped)="drop($event)" class="mat-elevation-z8" id='table1'>
+
+    <ng-container  matColumnDef="no">
+        <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+         <mat-cell *matCellDef="let element"> {{element.no}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="mobile">
+        <mat-header-cell *matHeaderCellDef> mobile </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.mobile}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag></mat-row>
+
+   </table>
+
+   <table  mat-table [dataSource]="dataSource2" cdkDropList  #list2="cdkDropList" [cdkDropListData]="dataSource2.data" [cdkDropListConnectedTo]="[list1]" (cdkDropListDropped)="drop($event)" class="mat-elevation-z8" id='table2'>
+
+    <ng-container matColumnDef="no">
+        <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.no}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef> City </mat-header-cell>>
+        <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="mobile">
+        <mat-header-cell *matHeaderCellDef> mobile </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.mobile}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag></mat-row>
+
+   </table>
+
+   
