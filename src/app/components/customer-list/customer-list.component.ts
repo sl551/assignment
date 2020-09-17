@@ -1,7 +1,7 @@
 import { AfterViewChecked, ChangeDetectorRef, Component, OnInit,ViewChild } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList} from '@angular/cdk/drag-drop';
 import { MatTable, MatTableDataSource } from '@angular/material';
-import clonedeep from 'lodash.clonedeep';
+
 export interface CustomerList {
   no:number
   name: string;
@@ -58,8 +58,8 @@ export class CustomerListComponent implements OnInit,AfterViewChecked {
     }
 
     
-    this.dataSource.data = clonedeep(this.dataSource.data);
-    this.dataSource2.data = clonedeep(this.dataSource2.data);
+    this.dataSource.data = JSON.parse(JSON.stringify(this.dataSource.data));
+    this.dataSource2.data = JSON.parse(JSON.stringify(this.dataSource2.data));
   }
 
   
