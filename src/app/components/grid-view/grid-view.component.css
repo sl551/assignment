@@ -3,6 +3,9 @@ mat-grid-tile {
     box-sizing: border-box;
     
   }
+  mat-grid-list{
+    margin: 20px !important;
+  }
 
   .dragsection-main{
     border: 1px solid lightgray;

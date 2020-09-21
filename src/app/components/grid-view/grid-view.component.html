@@ -1,26 +1,21 @@
-<div id="drag" class='dragsection-main' (drop)="drop($event)" (dragover)="allowDrop($event)">
-<h3>Drag section</h3>
-  <div class="drag-section" draggable="true" (dragstart)="drag($event)" id="drag-section">
 
-    <mat-grid-list cols="4" rowHeight="2:1">
-      <mat-grid-tile class='tile-spacing'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</mat-grid-tile>
-      <mat-grid-tile class='tile-spacing'>Lorem Ipsum is simply dummy text</mat-grid-tile>
-      <mat-grid-tile colspan=2 class='tile-spacing'>
-        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
-        its layout
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-  <div class="drag-section" draggable="true" (dragstart)="drag($event)" id="drag-sections">
+  <mat-grid-list cols="4" cdkDropList #tile="cdkDropList" [cdkDropListData]="tiles" (cdkDropListDropped)="drop($event)"
+    [cdkDropListConnectedTo]="[emptyTile]" rowHeight="100px">
+    <mat-grid-tile cdkDrag *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      {{tile.text}}
+    </mat-grid-tile>
 
-    <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile class='tile-spacing'>Lorem Ipsum is simply dummy text</mat-grid-tile>
+  </mat-grid-list>
 
-    </mat-grid-list>
-  </div>
-</div>
-
-<div id="drop" class='drop-section' (drop)="drop($event)" (dragover)="allowDrop($event)">
+<div class='clearfix'></div>
+<div class="drop-section">
   <h3>Drop here</h3>
+  <mat-grid-list [cols]="4" (cdkDropListDropped)="drop($event)" cdkDropList [cdkDropListData]="emptyTiles"
+    #emptyTile="cdkDropList" [cdkDropListConnectedTo]="[tile]" rowHeight="100px">
+    <mat-grid-tile cdkDrag *ngFor="let tile of emptyTiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      {{tile.text}}
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
