@@ -4,9 +4,20 @@ mat-grid-tile {
     
   }
 
+  .dragsection-main{
+    border: 1px solid lightgray;
+    text-align: center;
+  }
+
+  .drag-section{
+    margin: 15px;
+  }
+
 .drop-section{
   width: 100%;
   height: 300px;
   margin-top: 150px;
   text-align: center;
+  border: 1px solid lightgray;
+  box-sizing: border-box;
 }
