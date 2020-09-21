@@ -3,7 +3,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList} from '@ang
 import { MatTable, MatTableDataSource } from '@angular/material';
 
 export interface CustomerList {
-  no:number
+  no: number;
   name: string;
   city: string;
   mobile: number;
@@ -15,9 +15,7 @@ export interface CustomerList {
   styleUrls: ['./customer-list.component.css']
 })
 
-
-
-export class CustomerListComponent implements OnInit,AfterViewChecked {
+export class CustomerListComponent implements OnInit, AfterViewChecked {
   displayedColumns: string[] = ['no', 'name', 'city', 'mobile'];
   list: CustomerList[];
   list2: CustomerList[];
@@ -26,19 +24,18 @@ export class CustomerListComponent implements OnInit,AfterViewChecked {
   constructor(private cdRef: ChangeDetectorRef) {  }
 
   ngOnInit() {
-    this.list=[
-      {no:1, name: 'sachin', city:'Nashik', mobile:8600239524 },
-      {no:2, name: 'Vishal', city:'Pune', mobile:8967895475 },
-      {no:3, name: 'Avdhoot', city:'Solapur', mobile:9978654789 },
-      {no:4, name: 'mukesh', city:'Satara', mobile:7896541236 }
-    
+    this.list = [
+      {no: 1, name: 'sachin', city: 'Nashik', mobile: 8600239524 },
+      {no: 2, name: 'Vishal', city: 'Pune', mobile: 8967895475 },
+      {no: 3, name: 'Avdhoot', city: 'Solapur', mobile: 9978654789 },
+      {no: 4, name: 'mukesh', city: 'Satara', mobile: 7896541236 }
     ];
-    this.list2=[
-      {no:5, name: 'Husen', city:'Pune', mobile:9789674124 },
-      {no:6, name: 'Rahul', city:'Nashik', mobile:7896879587 },  
-      {no:7, name: 'Manish', city:'Aurangabad', mobile:7789654124 },
-      {no:8, name: 'Sandip', city:'Nashik', mobile:8698745789 },
-    ]
+    this.list2 = [
+      {no: 5, name: 'Husen', city: 'Pune', mobile: 9789674124 },
+      {no: 6, name: 'Rahul', city: 'Nashik', mobile: 7896879587 },
+      {no: 7, name: 'Manish', city: 'Aurangabad', mobile: 7789654124 },
+      {no: 8, name: 'Sandip', city: 'Nashik', mobile: 8698745789 },
+    ];
     this.dataSource = new MatTableDataSource(this.list);
     this.dataSource2 = new MatTableDataSource(this.list2);
   }
@@ -57,10 +54,7 @@ export class CustomerListComponent implements OnInit,AfterViewChecked {
                         event.currentIndex);
     }
 
-    
     this.dataSource.data = JSON.parse(JSON.stringify(this.dataSource.data));
     this.dataSource2.data = JSON.parse(JSON.stringify(this.dataSource2.data));
   }
-
-  
 }

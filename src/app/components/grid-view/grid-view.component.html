@@ -1,0 +1,26 @@
+<div id="drag" (drop)="drop($event)" (dragover)="allowDrop($event)">
+
+  <div draggable="true" (dragstart)="drag($event)" id="drag-section">
+
+    <mat-grid-list cols="4" rowHeight="2:1">
+      <mat-grid-tile class='tile-spacing'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</mat-grid-tile>
+      <mat-grid-tile class='tile-spacing'>Lorem Ipsum is simply dummy text</mat-grid-tile>
+      <mat-grid-tile colspan=2 class='tile-spacing'>
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+        its layout
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div draggable="true" (dragstart)="drag($event)" id="drag-sections">
+
+    <mat-grid-list cols="1" rowHeight="100px">
+      <mat-grid-tile class='tile-spacing'>Lorem Ipsum is simply dummy text</mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+</div>
+
+<div id="drop" class='drop-section' (drop)="drop($event)" (dragover)="allowDrop($event)">
+  <p>Drop here</p>
+</div>
